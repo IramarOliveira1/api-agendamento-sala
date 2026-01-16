@@ -10,7 +10,6 @@ export const sequelize = new Sequelize(
     dialect: 'mysql',
     logging: false,
     timezone: '-03:00',
-
     dialectOptions: {
       connectTimeout: 60000,
       ssl: {
