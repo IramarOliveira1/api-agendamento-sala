@@ -1,10 +1,8 @@
 import { Router } from 'express';
 import { schedulingController } from '../controllers/SchedulingController';
 import { authMiddleware } from '../middleware/AuthMiddleware';
-import { SchedulingService } from '../services/SchedulingService';
 
 const router = Router();
-
 
 router.post('/scheduling/store', authMiddleware.handle, schedulingController.store);
 router.get('/scheduling/list', authMiddleware.handle, schedulingController.all);
