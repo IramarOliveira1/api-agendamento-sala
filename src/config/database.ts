@@ -1,7 +1,4 @@
 import { Sequelize } from 'sequelize';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 export const sequelize = new Sequelize(
   process.env.DB_NAME as string,
@@ -9,10 +6,16 @@ export const sequelize = new Sequelize(
   process.env.DB_PASS as string,
   {
     host: process.env.DB_HOST,
-    dialect: process.env.DB_DIALECT as any,
+    port: Number(process.env.DB_PORT), // 🔥 OBRIGATÓRIO
+    dialect: 'mysql',
     logging: false,
     timezone: '-03:00',
+
     dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
       dateStrings: true,
       typeCast: true,
     },
