@@ -13,8 +13,8 @@ export const sequelize = new Sequelize(
     logging: false,
     timezone: '-03:00',
     dialectOptions: {
-      dateStrings: true, // Força o banco a retornar datas como strings
-      typeCast: true,    // Mantém o fuso horário ao ler do banco
+      dateStrings: true,
+      typeCast: true,
     },
   }
 );

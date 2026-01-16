@@ -4,9 +4,9 @@ import { Scheduling } from './Scheduling';
 export class Room extends Model {
     declare id: number;
     declare name: string;
-    declare startTime: string;
-    declare endTime: string;
-    declare roomDuration: number;
+    declare start_time: string;
+    declare end_time: string;
+    declare room_duration: number;
     declare status?: boolean;
     declare schedulings?: Scheduling[];
 

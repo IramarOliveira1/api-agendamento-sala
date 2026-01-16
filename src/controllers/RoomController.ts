@@ -5,7 +5,6 @@ class RoomController {
 
     async store(req: Request, res: Response) {
         try {
-
             await roomService.create(req.body);
 
             return res.status(201).json({ message: 'Sala cadastrada com sucesso!' });

@@ -128,9 +128,9 @@ class RoomService {
         });
 
         return rooms.filter(room => {
-            const roomStart = dayjs(`${date} ${room.startTime}`, 'YYYY-MM-DD HH:mm');
-            const roomEnd = dayjs(`${date} ${room.endTime}`, 'YYYY-MM-DD HH:mm');
-            const requestedEnd = requestedStart.add(room.roomDuration, 'minute');
+            const roomStart = dayjs(`${date} ${room.start_time}`, 'YYYY-MM-DD HH:mm');
+            const roomEnd = dayjs(`${date} ${room.end_time}`, 'YYYY-MM-DD HH:mm');
+            const requestedEnd = requestedStart.add(room.room_duration, 'minute');
 
             const isWithinOperatingHours =
                 (requestedStart.isSame(roomStart) || requestedStart.isAfter(roomStart)) &&
@@ -140,7 +140,7 @@ class RoomService {
 
             const hasConflict = room.schedulings?.some(scheduling => {
                 const existingStart = dayjs(scheduling.date_scheduling);
-                const existingEnd = existingStart.add(room.roomDuration, 'minute');
+                const existingEnd = existingStart.add(room.room_duration, 'minute');
 
                 return requestedStart.isBefore(existingEnd) && requestedEnd.isAfter(existingStart);
             });
